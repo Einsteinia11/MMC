@@ -1,0 +1,331 @@
+.frameChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 var(--br-11xl) var(--br-241xl) 0;
+  background-color: var(--color-blueviolet);
+  width: 306px;
+  height: 847px;
+}
+.frameItem {
+  position: absolute;
+  top: 62px;
+  left: 46px;
+  border-radius: 50%;
+  background-color: var(--color-gray-100);
+  width: 187px;
+  height: 188px;
+}
+.abc123gmailcom,
+.yourName {
+  position: absolute;
+  left: 32px;
+  text-align: left;
+  display: inline-block;
+}
+.yourName {
+  top: 261px;
+  font-family: var(--font-poppins);
+  width: 201px;
+  height: 32px;
+}
+.abc123gmailcom {
+  top: 293px;
+  width: 216px;
+  height: 37px;
+}
+.frameInner {
+  position: absolute;
+  top: 356px;
+  left: 32px;
+  border-radius: var(--br-41xl);
+  background-color: var(--color-blueviolet);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 233px;
+  height: 45px;
+}
+.meetings,
+.rectangleDiv {
+  position: absolute;
+  cursor: pointer;
+}
+.rectangleDiv {
+  top: 427px;
+  left: 32px;
+  border-radius: var(--br-41xl);
+  background-color: var(--color-blueviolet);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 233px;
+  height: 45px;
+}
+.meetings {
+  top: 442px;
+  left: 46px;
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+}
+.frameChild1,
+.frameChild2,
+.frameChild3 {
+  position: absolute;
+  left: 32px;
+  border-radius: var(--br-41xl);
+  background-color: var(--color-blueviolet);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 233px;
+  height: 45px;
+}
+.frameChild1 {
+  top: 569px;
+  cursor: pointer;
+}
+.frameChild2,
+.frameChild3 {
+  top: 498px;
+}
+.frameChild3 {
+  top: 719px;
+  left: 59px;
+  border-radius: var(--br-71xl);
+  width: 147px;
+  height: 47px;
+}
+.home {
+  position: absolute;
+  top: 725px;
+  left: 103px;
+  text-align: left;
+  display: inline-block;
+  width: 64px;
+  height: 30px;
+  cursor: pointer;
+}
+.connect {
+  top: 371px;
+  left: 46px;
+  cursor: pointer;
+}
+.connect,
+.join,
+.notifications {
+  position: absolute;
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+}
+.notifications {
+  top: 581px;
+  left: 48px;
+  cursor: pointer;
+}
+.join {
+  top: 513px;
+  left: 46px;
+}
+.uileditIcon {
+  top: 286px;
+  left: 216px;
+  width: 34px;
+  height: 26px;
+  overflow: hidden;
+}
+.frameChild4,
+.resources,
+.uileditIcon {
+  position: absolute;
+  cursor: pointer;
+}
+.frameChild4 {
+  top: 640px;
+  left: 32px;
+  border-radius: var(--br-41xl);
+  background-color: var(--color-blueviolet);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 233px;
+  height: 45px;
+}
+.resources {
+  top: 648px;
+  left: 40px;
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+}
+.rectangleParent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 306px;
+  height: 847px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-source-sans-pro);
+}
+.quoteOfThe,
+.whenSomethingIs {
+  position: absolute;
+  top: 105px;
+  left: 325px;
+  display: inline-block;
+  width: 318px;
+  height: 38px;
+}
+.whenSomethingIs {
+  top: 156px;
+  left: 331px;
+  font-size: var(--font-size-mini);
+  width: 504px;
+}
+.desktop8Child,
+.desktop8Inner,
+.desktop8Item {
+  position: absolute;
+  top: 149px;
+  left: 1082px;
+  border-radius: 50%;
+  background-color: var(--color-blueviolet);
+  width: 104px;
+  height: 89px;
+}
+.desktop8Inner,
+.desktop8Item {
+  top: -32px;
+  left: 1134px;
+  width: 149px;
+  height: 137px;
+}
+.desktop8Inner {
+  top: 339px;
+  left: 1171px;
+  width: 72px;
+  height: 62px;
+}
+.goodMorningUser {
+  position: absolute;
+  top: 27px;
+  left: 819px;
+  font-size: var(--font-size-17xl);
+  display: inline-block;
+  width: 412px;
+  height: 61px;
+}
+.frameChild5 {
+  position: absolute;
+  top: 18px;
+  left: 2px;
+  border-radius: var(--br-41xl);
+  background: linear-gradient(180deg, #fef6f6, rgba(254, 246, 246, 0));
+  box-shadow: 10px 30px 4px rgba(0, 0, 0, 0.25);
+  width: 869px;
+  height: 779px;
+}
+.dateTime {
+  position: absolute;
+  top: 17px;
+  left: 50px;
+  line-height: 22px;
+  display: inline-block;
+  width: 141px;
+  height: 25px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.dateTimeParent,
+.healthiconsiScheduleSchool {
+  position: absolute;
+  top: 4px;
+  left: 9px;
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+}
+.dateTimeParent {
+  top: 107px;
+  left: 619px;
+  border-radius: var(--br-41xl);
+  background-color: var(--color-white);
+  width: 191px;
+  height: 53px;
+}
+.title {
+  position: absolute;
+  top: 48px;
+  left: 45px;
+  font-size: 27px;
+  line-height: 22px;
+  color: var(--color-black);
+  display: inline-block;
+  width: 783px;
+  height: 36px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.fluentMdl2joinOnlineMeetinIcon,
+.zondiconslocation {
+  position: absolute;
+  top: 179px;
+  left: 54px;
+  width: 30px;
+  height: 28px;
+  overflow: hidden;
+}
+.fluentMdl2joinOnlineMeetinIcon {
+  top: 15px;
+  left: 9px;
+  height: 30px;
+}
+.join1 {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+  line-height: 22px;
+  display: inline-block;
+  width: 69px;
+  height: 25px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.fluentMdl2joinOnlineMeetinParent {
+  position: absolute;
+  top: 107px;
+  left: 45px;
+  border-radius: var(--br-41xl);
+  background-color: var(--color-white);
+  width: 104px;
+  height: 53px;
+  overflow: hidden;
+}
+.location {
+  position: absolute;
+  top: 183px;
+  left: 89px;
+  line-height: 22px;
+  color: var(--color-black);
+  display: inline-block;
+  width: 114px;
+  height: 34px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.rectangleGroup {
+  position: absolute;
+  top: 222px;
+  left: 337px;
+  width: 894px;
+  height: 815px;
+  overflow: hidden;
+  text-align: center;
+  color: var(--color-navy);
+  font-family: var(--font-roboto);
+}
+.desktop8 {
+  position: relative;
+  background-color: var(--color-white);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 1075px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-poppins);
+}
