@@ -1,0 +1,238 @@
+.desktop5Inner,
+.frameChild {
+  position: absolute;
+  top: 0;
+  left: 889px;
+  background-color: var(--color-blueviolet);
+  width: 131px;
+  height: 110px;
+  overflow: hidden;
+}
+.desktop5Inner {
+  left: 0;
+  width: 1248px;
+  height: 55px;
+}
+.desktop5Child {
+  position: absolute;
+  top: 1027px;
+  left: 571px;
+  border-radius: var(--br-41xl);
+  background-color: #f5803e;
+  width: 94px;
+  height: 35px;
+}
+.back {
+  position: absolute;
+  top: 1029px;
+  left: 592px;
+  display: inline-block;
+  width: 66px;
+  height: 33px;
+}
+.frameItem {
+  top: 16px;
+  left: 21px;
+  border-radius: var(--br-41xl);
+  background: linear-gradient(180deg, #fff6f6, rgba(255, 246, 246, 0));
+  box-shadow: 30px 30px 4px rgba(0, 0, 0, 0.25);
+  width: 698px;
+  height: 820px;
+}
+.dob,
+.frameItem,
+.wrapper {
+  position: absolute;
+}
+.wrapper {
+  width: 434px;
+  border: 0;
+  background-color: transparent;
+  top: 565px;
+  left: 159px;
+}
+.dob {
+  top: 396px;
+  left: 406px;
+  display: inline-block;
+  width: 101px;
+  height: 20px;
+}
+.container {
+  width: 149px;
+  border: 0;
+  background-color: transparent;
+  top: 416px;
+  left: 433px;
+}
+.container,
+.frame,
+.gmail {
+  position: absolute;
+}
+.gmail {
+  top: 473px;
+  left: 130px;
+  display: inline-block;
+  width: 101px;
+  height: 20px;
+}
+.frame {
+  width: 434px;
+  border: 0;
+  background-color: transparent;
+  top: 493px;
+  left: 159px;
+}
+.bio,
+.skills,
+.year {
+  position: absolute;
+  top: 550px;
+  left: 130px;
+  display: inline-block;
+  width: 101px;
+  height: 20px;
+}
+.bio,
+.year {
+  top: 620px;
+}
+.year {
+  top: 396px;
+}
+.rectangleFormgroup {
+  width: 149px;
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 416px;
+  left: 159px;
+}
+.course,
+.name {
+  position: absolute;
+  top: 319px;
+  left: 130px;
+  display: inline-block;
+  width: 101px;
+  height: 20px;
+}
+.name {
+  top: 236px;
+}
+.frameInner {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 256px;
+  left: 159px;
+}
+.ellipseDiv {
+  position: absolute;
+  top: 12px;
+  left: 36px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  width: 131px;
+  height: 113px;
+}
+.iconamoonprofileThin {
+  position: absolute;
+  top: 12px;
+  left: 43px;
+  width: 118px;
+  height: 107px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.rectangleDiv,
+.yourName {
+  position: absolute;
+  top: 133px;
+  height: 26px;
+}
+.rectangleDiv {
+  left: 14px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-white);
+  width: 175px;
+}
+.yourName {
+  left: 27px;
+  display: inline-block;
+  width: 142px;
+}
+.solaruploadLinearIcon {
+  position: absolute;
+  top: 114px;
+  left: 133px;
+  width: 17px;
+  height: 19px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.ellipseParent {
+  position: absolute;
+  top: 33px;
+  left: 272px;
+  width: 215px;
+  height: 176px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-black);
+}
+.frameChild1 {
+  position: absolute;
+  top: 760px;
+  left: 280px;
+  border-radius: var(--br-41xl);
+  background-color: #42f53e;
+  width: 195px;
+  height: 35px;
+}
+.saveChanges {
+  position: absolute;
+  top: 762px;
+  left: 303px;
+  font-size: var(--font-size-xl);
+  color: var(--color-gray-400);
+  display: inline-block;
+  width: 146px;
+  height: 33px;
+}
+.rectangleTextfield {
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 347px;
+  left: 162px;
+}
+.rectangleParent,
+.textareastandardFormgroup {
+  width: 430px;
+  position: absolute;
+  top: 640px;
+  left: 163px;
+}
+.rectangleParent {
+  top: 85px;
+  left: 246px;
+  width: 757px;
+  height: 884px;
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+  color: var(--color-blue);
+}
+.desktop5 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1127px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-gray-400);
+  font-family: var(--font-poppins);
+}
