@@ -29,6 +29,7 @@
   display: inline-block;
   width: 66px;
   height: 33px;
+  cursor: pointer;
 }
 .frameItem {
   top: 16px;
@@ -109,26 +110,33 @@
   top: 416px;
   left: 159px;
 }
-.course,
-.name {
-  position: absolute;
+.course {
   top: 319px;
   left: 130px;
   display: inline-block;
   width: 101px;
   height: 20px;
 }
+.course,
+.name,
+.wrapper1 {
+  position: absolute;
+}
 .name {
   top: 236px;
+  left: 130px;
+  display: inline-block;
+  width: 101px;
+  height: 20px;
 }
-.frameInner {
+.wrapper1 {
+  width: 434px;
   border: 0;
   background-color: transparent;
-  position: absolute;
   top: 256px;
   left: 159px;
 }
-.ellipseDiv {
+.frameInner {
   position: absolute;
   top: 12px;
   left: 36px;
@@ -163,22 +171,20 @@
   display: inline-block;
   width: 142px;
 }
-.solaruploadLinearIcon {
+.ellipseParent,
+.solaruploadLinear {
   position: absolute;
   top: 114px;
-  left: 133px;
+  left: 144px;
   width: 17px;
   height: 19px;
   overflow: hidden;
-  object-fit: cover;
 }
 .ellipseParent {
-  position: absolute;
   top: 33px;
   left: 272px;
   width: 215px;
   height: 176px;
-  overflow: hidden;
   text-align: center;
   font-size: var(--font-size-base);
   color: var(--color-black);
@@ -189,20 +195,22 @@
   left: 280px;
   border-radius: var(--br-41xl);
   background-color: #42f53e;
-  width: 195px;
+  width: 207px;
   height: 35px;
 }
 .saveChanges {
   position: absolute;
-  top: 762px;
-  left: 303px;
+  top: 763px;
+  left: 304px;
   font-size: var(--font-size-xl);
   color: var(--color-gray-400);
   display: inline-block;
-  width: 146px;
+  width: 204px;
   height: 33px;
+  cursor: pointer;
 }
-.rectangleTextfield {
+.wrapper2 {
+  width: 434px;
   border: 0;
   background-color: transparent;
   position: absolute;
