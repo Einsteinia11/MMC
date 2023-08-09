@@ -12,7 +12,8 @@ app.use(express.json());
 const con = mysql.createConnection({
   host: 'localhost',
   user: "root",
-  password: ""
+  password: "",
+  database: ""
 })
 con.connect(function(err){
   if(err){
@@ -24,3 +25,4 @@ con.connect(function(err){
 app.listen(8081, ()=> {
   console.log("Running");
 })
+
