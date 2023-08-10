@@ -84,6 +84,8 @@ function App() {
   }, [pathname]);
 
   return (
+    
+  
     <Routes>
       <Route path="/" element={<Desktop1 />} />
       <Route path="/desktop-7" element={<Desktop7 />} />
@@ -95,6 +97,7 @@ function App() {
       <Route path="/desktop-2" element={<Desktop2 />} />
       <Route path="/desktop-5" element={<Desktop5 />} />
     </Routes>
+    
   );
 }
 export default App;
