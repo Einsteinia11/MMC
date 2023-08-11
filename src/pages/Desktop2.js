@@ -39,7 +39,7 @@ const Desktop2 = () => {
   const [PID, setPID] = useState("");
   const [email, setEmail] = useState("");
   const submit = () =>{
-    Axios.post("http://localhost:8081/api/insert", {userName: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, pid: PID, exp: exp})
+    Axios.post("http://localhost:8081/api/insert", {userName: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, pid: PID, exp: exp}).then(()=>{alert("Successful insert!")})
   };
   return (
     <div className={styles.desktop2}>
