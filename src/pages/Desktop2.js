@@ -4,6 +4,8 @@ import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 import { Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop2.module.css";
+import Axios from 'axios';
+
 const Desktop2 = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -27,6 +29,18 @@ const Desktop2 = () => {
     navigate("/desktop-6");
   }, [navigate]);
 
+  const [Name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [course, setCourse] = useState("");
+  const [year, setYear] = useState("");
+  const [dob, setDOB] = useState("");
+  const [password, setPassword] = useState("");
+  const [exp, setExperience] = useState("");
+  const [PID, setPID] = useState("");
+  const [email, setEmail] = useState("");
+  const submit = () =>{
+    Axios.post("http://localhost:8081/", {userName: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, pid: PID, exp: exp})
+  };
   return (
     <div className={styles.desktop2}>
       <img className={styles.desktop2Child} alt="" src="/rectangle-1.svg" />
@@ -46,6 +60,9 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setName(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameInner}
@@ -57,6 +74,9 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setPhone(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameTextfield}
@@ -68,6 +88,9 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setCourse(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild1}
@@ -79,6 +102,9 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setYear(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild2}
@@ -90,6 +116,9 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setDOB(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild3}
@@ -101,6 +130,9 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setEmail(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild4}
@@ -124,12 +156,18 @@ const Desktop2 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setPassword(e.target.value);
+          }}
         />
         <Input.TextArea
           className={styles.textareaborderInputtextarea}
           style={{ width: "471px" }}
           size="middle"
           placeholder="Any Experience"
+          onChange={(e)=>{
+            setExperience(e.target.value);
+          }}
         />
       </div>
       <div className={styles.submitWrapper} onClick={onFrameContainer1Click}>

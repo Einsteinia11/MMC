@@ -30,7 +30,7 @@ const FrameComponent = ({ onClose }) => {
       <div className={styles.frameItem} />
       <div className={styles.email}>Email</div>
       <div className={styles.dontHaveAnContainer} onClick={onDontHaveAnClick}>
-        <span>{`Don’t have an account yet? `}</span>
+        <span>{`Don't have an account yet? `}</span>
         <i className={styles.signUp}>{`Sign up -> `}</i>
       </div>
       <Form.Select className={styles.selectdefaultFormselect} id="LA">
