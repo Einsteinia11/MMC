@@ -36,7 +36,7 @@ const Desktop2 = () => {
   const [dob, setDOB] = useState("");
   const [password, setPassword] = useState("");
   const [exp, setExperience] = useState("");
-  const [PID, setPID] = useState("");
+
   const [email, setEmail] = useState("");
   const submit = () =>{
     Axios.post("http://localhost:8081/api/insert", {

@@ -4,6 +4,8 @@ import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 import { Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop6.module.css";
+import Axios from 'axios';
+
 const Desktop6 = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -27,6 +29,21 @@ const Desktop6 = () => {
     navigate("/desktop-2");
   }, [navigate]);
 
+  const [Name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [year, setYear] = useState("");
+  const [dob, setDOB] = useState("");
+  const [password, setPassword] = useState("");
+  const [exp, setExperience] = useState("");
+  const [email, setEmail] = useState("");
+  const [job_desc, setJobDesc] = useState("");
+  const [qualification, setQualification] = useState("");
+  const submit = () =>{
+    Axios.post("http://localhost:8081/mentor", {
+      Name: Name, password: password, email: email, phone: phone, year: year, dob: dob, exp: exp, job_desc: job_desc, qualification: qualification
+    }).then(()=>{alert("Successful insert!")})
+  };
+
   return (
     <div className={styles.desktop6}>
       <img className={styles.desktop6Child} alt="" src="/rectangle-1.svg" />
@@ -45,6 +62,10 @@ const Desktop6 = () => {
           label="Full Name"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setName(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameInner}
@@ -55,6 +76,10 @@ const Desktop6 = () => {
           label="Mobile Number"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setPhone(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameTextfield}
@@ -63,9 +88,13 @@ const Desktop6 = () => {
           variant="standard"
           type="number"
           label="Year"
-          placeholder="Placeholder"
+          placeholder="Years of experience in mentoring"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setYear(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild1}
@@ -74,9 +103,13 @@ const Desktop6 = () => {
           variant="standard"
           type="date"
           label="Date"
-          placeholder="Placeholder"
+          placeholder="Date of Birth"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setDOB(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild2}
@@ -85,9 +118,13 @@ const Desktop6 = () => {
           variant="standard"
           type="email"
           label="Gmail"
-          placeholder="Placeholder"
+          placeholder="Email"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setEmail(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild3}
@@ -96,9 +133,13 @@ const Desktop6 = () => {
           variant="standard"
           type="text"
           label="Job Description"
-          placeholder="Placeholder"
+          placeholder="Job overview"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setJobDesc(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild4}
@@ -119,9 +160,13 @@ const Desktop6 = () => {
             ),
           }}
           label="Password"
-          placeholder="Placeholder"
+          placeholder="Password"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setPassword(e.target.value);
+          }}
         />
         <TextField
           className={styles.frameChild5}
@@ -132,15 +177,22 @@ const Desktop6 = () => {
           label="Qualification"
           size="medium"
           margin="none"
+          required
+          onChange={(e)=>{
+            setQualification(e.target.value);
+          }}
         />
         <Input.TextArea
           className={styles.textareaborderInputtextarea}
           style={{ width: "471px" }}
           size="middle"
           placeholder="Any Experience"
+          onChange={(e)=>{
+            setExperience(e.target.value);
+          }}
         />
       </div>
-      <div className={styles.submitWrapper} onClick={onFrameContainer1Click}>
+      <div className={styles.submitWrapper} onClick={submit}>
         <div className={styles.submit}>Submit</div>
       </div>
       <div className={styles.menteeParent} onClick={onFrameContainer2Click}>
