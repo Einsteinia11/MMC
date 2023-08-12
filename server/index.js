@@ -4,6 +4,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import bodyParser from 'body-parser';
 
 const app = express();
 app.use(cors());
@@ -27,6 +28,7 @@ con.connect(function(err){
     console.log("Connected")
   }
 })
+app.use(bodyParser.urlencoded({extended: true}));
 // app.get("/", (req, res) => {
 //   const sqlInsert = "INSERT INTO login_credentials(PID, UserName, Password, Type) values('P#01', 'Nandan', 'Hare krishna', 'Mentor');";
 //   con.query(sqlInsert, (err, result) => {
