@@ -8,6 +8,7 @@ import bodyParser from 'body-parser';
 
 const app = express();
 app.use(cors());
+app.use(express.json())
 app.use(cookieParser());
 app.use(express.json());
 
@@ -37,9 +38,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 // });
 
 app.post("/api/insert", (req, res) => {
+  const PID = 'P#01';
+  const UserName = req.body.Name;
+  const Password = req.body.password;
+  const Course = req.body.course;
+  const Year = req.body.year;
+  const DOB = req.body.dob;
+  const Phone = req.body.phone;
+  const Gmail = req.body.email;
+  const Experience = req.body.exp;
   const sqlInsert = "INSERT INTO mentees_data(PID, UserName,	Password,	Course,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
-  db.query(sqlInsert, [PID, Name, password, course, year,  phone, email, dob, exp], (err, result) => {
-
+  con.query(sqlInsert, [PID, UserName, Password, Course, Year,  Phone, Gmail, DOB, Experience], (err, result) => {
+    console.log(result);
+    console.log("done");
+    console.log(err);
   })
 });
 

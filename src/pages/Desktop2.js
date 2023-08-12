@@ -39,7 +39,9 @@ const Desktop2 = () => {
   const [PID, setPID] = useState("");
   const [email, setEmail] = useState("");
   const submit = () =>{
-    Axios.post("http://localhost:8081/api/insert", {userName: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, pid: PID, exp: exp}).then(()=>{alert("Successful insert!")})
+    Axios.post("http://localhost:8081/api/insert", {
+      Name: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, pid: PID, exp: exp
+    }).then(()=>{alert("Successful insert!")})
   };
   return (
     <div className={styles.desktop2}>
@@ -170,7 +172,7 @@ const Desktop2 = () => {
           }}
         />
       </div>
-      <div className={styles.submitWrapper} onClick={onFrameContainer1Click}>
+      <div className={styles.submitWrapper} onClick={submit}>
         <div className={styles.submit}>Submit</div>
       </div>
       <div className={styles.menteeParent}>
