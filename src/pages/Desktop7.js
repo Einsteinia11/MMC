@@ -75,6 +75,8 @@ const Desktop7 = () => {
     navigate("/desktop-8");
   }, [navigate]);
 
+  
+
   return (
     <div className={styles.desktop7}>
       <div className={styles.rectangleParent}>

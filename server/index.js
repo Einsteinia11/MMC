@@ -91,6 +91,23 @@ app.post("/mentor", (req, res) => {
   })
 });
 
+//for meeting
+app.post("/meet", (req, res) => {
+  const meet_ID = 'M#01';
+  const	PID = req.body.PID;
+  const  Title = req.body.title;
+  const  date = req.body.date;
+  const  location = req.body.location;
+  const  Event_URL = req.body.meet;
+  const  Description = req.body.desc;
+  const sqlInsert = "INSERT INTO meetings(Meet_ID,	PID,	Title,	Date,	Location,	Event_URL,	Description) VALUES(?, ?, ?, ?, ?, ?, ?)"
+  con.query(sqlInsert, [meet_ID,	PID,	Title,	date,	location,	Event_URL,	Description], (err, result) => {
+    console.log(result);
+    console.log("added into meetings");
+    console.log(err);
+  })
+});
+
 app.listen(8081, ()=> {
   console.log("Running on port 8081");
 })
