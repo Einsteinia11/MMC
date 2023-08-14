@@ -49,11 +49,18 @@ app.post("/api/insert", (req, res) => {
   const Phone = req.body.phone;
   const Gmail = req.body.email;
   const Experience = req.body.exp;
+  const type = "Mentee";
   const sqlInsert = "INSERT INTO mentees_data(PID, UserName,	Password,	Course,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
   con.query(sqlInsert, [PID, UserName, Password, Course, Year,  Phone, Gmail, DOB, Experience], (err, result) => {
     console.log(result);
-    console.log("done");
+    console.log("added into mentees data");
     console.log(err);
+  })
+  const q = "INSERT INTO login_credentials(PID, UserName, Password, Type) VALUES(?,?,?,?)";
+  con.query(q, [PID, UserName, Password, type], (err, result) => {
+    console.log(result);
+    console.log("added into login_credentials")
+    console.log(err)
   })
 });
 
@@ -69,11 +76,18 @@ app.post("/mentor", (req, res) => {
   const Phone = req.body.phone;
   const Gmail = req.body.email;
   const Experience = req.body.exp;
+  const type = "Mentor";
   const sqlInsert = "INSERT INTO mentor_data(PID,	UserName,	Password,	Qualification,	Job_Description,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
   con.query(sqlInsert, [PID, UserName, Password, Qualification, Job_desc,  Year, Phone, Gmail, DOB, Experience], (err, result) => {
     console.log(result);
-    console.log("done");
+    console.log("added into mentor_data");
     console.log(err);
+  })
+  const q = "INSERT INTO login_credentials(PID, UserName, Password, Type) VALUES(?,?,?,?)";
+  con.query(q, [PID, UserName, Password, type], (err, result) => {
+    console.log(result);
+    console.log("added into login_credentials")
+    console.log(err)
   })
 });
 
