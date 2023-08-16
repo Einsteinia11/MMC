@@ -94,7 +94,7 @@ app.post("/mentor", (req, res) => {
 //for meeting
 app.post("/meet", (req, res) => {
   const meet_ID = 'M#01';
-  const	PID = req.body.PID;
+  const	PID = 'P#01';
   const  Title = req.body.title;
   const  date = req.body.date;
   const  location = req.body.location;
@@ -106,6 +106,16 @@ app.post("/meet", (req, res) => {
     console.log("added into meetings");
     console.log(err);
   })
+});
+
+//meeting information display
+app.get('/info', (req, res) => {
+  con.query("use client");
+  con.query("SELECT * FROM meetings;", (err, results, fields) => {
+    if(err) throw err;
+    res.send(results);
+    console.log(results);
+  });
 });
 
 app.listen(8081, ()=> {

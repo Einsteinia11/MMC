@@ -1,10 +1,11 @@
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 import "antd/dist/antd.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TextField, Button as MuiButton } from "@mui/material";
 import { Input as AntInput } from "antd";
 import { Form } from "react-bootstrap";
 import { Input } from "@chakra-ui/react";
+import Axios from 'axios';
 import {
   DownOutlined,
   ArrowLeftOutlined,
@@ -74,8 +75,19 @@ const Desktop7 = () => {
   const onFrameContainer2Click = useCallback(() => {
     navigate("/desktop-8");
   }, [navigate]);
+  //Meet_ID	PID	Title	Date	Location	Event_URL	Description	
+  //const [PID, usePID] = useState("");
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [location, setLoc] = useState("");
+  const [url, setUrl] = useState("");
+  const [desc, setDesc] = useState("");
 
-  
+  const create = () =>{
+    Axios.post("http://localhost:8081/meet", {
+      title: title, date: date, location: location, meet: url, desc: desc
+    }).then(()=>{alert("Successful insert!")})
+  };
 
   return (
     <div className={styles.desktop7}>
@@ -149,9 +161,15 @@ const Desktop7 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setTitle(e.target.value);
+          }}
         />
         <Form.Group className={styles.textareastandardFormgroup}>
-          <Form.Control as="textarea" placeholder="Description" />
+          <Form.Control as="textarea" placeholder="Description" 
+          onChange={(e)=>{
+            setDesc(e.target.value);
+          }}/>
         </Form.Group>
         <Input
           className={styles.dtPickerfilled}
@@ -159,11 +177,15 @@ const Desktop7 = () => {
           width="324px"
           focusBorderColor="#4832cf"
           type="dateTime-local"
+          onChange={(e)=>{
+            setDate(e.target.value);
+          }}
         />
         <MuiButton
           className={styles.buttonoutlinedText}
           variant="outlined"
           color="primary"
+          onClick={create}
         >
           Create Meeting
         </MuiButton>
@@ -177,6 +199,9 @@ const Desktop7 = () => {
           size="medium"
           margin="none"
           required
+          onChange={(e)=>{
+            setLoc(e.target.value);
+          }}
         />
         <AntInput
           className={styles.inputtwoIcons}
@@ -186,6 +211,10 @@ const Desktop7 = () => {
           suffix={<QuestionCircleOutlined />}
           size="middle"
           placeholder="Evet URL"
+          required
+          onChange={(e)=>{
+            setUrl(e.target.value);
+          }}
         />
       </div>
       <div className={styles.noMeetingsAs}>No meetings as of now created!</div>

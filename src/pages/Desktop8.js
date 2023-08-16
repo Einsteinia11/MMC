@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop8.module.css";
+import Axios from 'axios';
+
 const Desktop8 = () => {
   const navigate = useNavigate();
 
@@ -39,6 +41,11 @@ const Desktop8 = () => {
   const onResourcesTextClick = useCallback(() => {
     navigate("/desktop-10");
   }, [navigate]);
+
+
+  Axios.get("http://localhost:8081/info").then((response) => {
+    console.log(response.data)
+  });
 
   return (
     <div className={styles.desktop8}>
