@@ -111,7 +111,7 @@ app.post("/meet", (req, res) => {
 //meeting information display
 app.get('/info', (req, res) => {
   con.query("use client");
-  con.query("SELECT * FROM meetings;", (err, results, fields) => {
+  con.query("SELECT Title FROM meetings;", (err, results, fields) => {
     if(err) throw err;
     res.send(results);
     console.log(results);

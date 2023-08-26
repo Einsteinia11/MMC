@@ -40,7 +40,7 @@ const Desktop2 = () => {
   const [email, setEmail] = useState("");
   const submit = () =>{
     Axios.post("http://localhost:8081/api/insert", {
-      Name: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, pid: PID, exp: exp
+      Name: Name, password: password, email: email, phone: phone, course: course, year: year, dob: dob, exp: exp
     }).then(()=>{alert("Successful insert!")})
   };
   return (

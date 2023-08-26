@@ -82,13 +82,19 @@ const Desktop7 = () => {
   const [location, setLoc] = useState("");
   const [url, setUrl] = useState("");
   const [desc, setDesc] = useState("");
-
+  const [t, setT] = useState("");
   const create = () =>{
     Axios.post("http://localhost:8081/meet", {
       title: title, date: date, location: location, meet: url, desc: desc
     }).then(()=>{alert("Successful insert!")})
   };
-
+  const get_Title = () =>{
+    Axios.get("http://localhost:8081/info").then((response) => {
+    t: response.data(Title)
+    return t
+    });
+  }
+  
   return (
     <div className={styles.desktop7}>
       <div className={styles.rectangleParent}>
@@ -223,9 +229,10 @@ const Desktop7 = () => {
         onClick={onFrameContainer2Click}
       >
         <div className={styles.frameChild6} />
-        <b className={styles.title}>Title</b>
+
+        <b className={styles.title}>t</b>
       </div>
-      <b className={styles.dateTime}>{`Date & Time`}</b>
+      <b className={styles.dateTime}>Date & Time</b>
     </div>
   );
 };

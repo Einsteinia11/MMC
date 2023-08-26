@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop8.module.css";
 import Axios from 'axios';
@@ -42,8 +42,10 @@ const Desktop8 = () => {
     navigate("/desktop-10");
   }, [navigate]);
 
+  const [meetDetails, setMeetDetails] = useState([]);
 
   Axios.get("http://localhost:8081/info").then((response) => {
+    meetDetails(response.data)
     console.log(response.data)
   });
 
@@ -105,7 +107,7 @@ const Desktop8 = () => {
             src="/healthiconsischeduleschooldatetime.svg"
           />
         </div>
-        <div className={styles.title}>Title</div>
+        <div className={styles.title}>{val.title}</div>
         <img
           className={styles.zondiconslocation}
           alt=""
