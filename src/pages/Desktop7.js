@@ -89,8 +89,9 @@ const Desktop7 = () => {
     }).then(()=>{alert("Successful insert!")})
   };
   const get_Title = () =>{
-    Axios.get("http://localhost:8081/info").then((response) => {
-    t: response.data(Title)
+    Axios.get("http://localhost:8081/meet").then((response) => {
+    t = response.data;
+    console.log(t)
     return t
     });
   }
@@ -191,7 +192,9 @@ const Desktop7 = () => {
           className={styles.buttonoutlinedText}
           variant="outlined"
           color="primary"
-          onClick={create}
+          // onClick={Create}
+          onClick={get_Title}
+          
         >
           Create Meeting
         </MuiButton>
@@ -226,11 +229,11 @@ const Desktop7 = () => {
       <div className={styles.noMeetingsAs}>No meetings as of now created!</div>
       <div
         className={styles.rectangleContainer}
-        onClick={onFrameContainer2Click}
+        //onClick={onFrameContainer2Click}
       >
         <div className={styles.frameChild6} />
 
-        <b className={styles.title}>t</b>
+        <b className={styles.title} onClick={get_Title}>t</b>
       </div>
       <b className={styles.dateTime}>Date & Time</b>
     </div>

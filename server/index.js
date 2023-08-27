@@ -109,7 +109,7 @@ app.post("/meet", (req, res) => {
 });
 
 //meeting information display
-app.get('/info', (req, res) => {
+app.get('/meet', (req, res) => {
   con.query("use client");
   con.query("SELECT Title FROM meetings;", (err, results, fields) => {
     if(err) throw err;
