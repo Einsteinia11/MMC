@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop8.module.css";
 import Axios from 'axios';
@@ -42,12 +42,16 @@ const Desktop8 = () => {
     navigate("/desktop-10");
   }, [navigate]);
 
-  // const [meetDetails, setMeetDetails] = useState([]);
+  const [t, setT] = useState([]);
 
-  // Axios.get("http://localhost:8081/info").then((response) => {
-  //   meetDetails(response.data)
-  //   console.log(response.data)
-  // });
+  const get_Title = () => {
+    Axios.get("http://localhost:8081/meet").then((response) => {
+      setT(response.data);
+    });
+  }
+  useEffect(() => {
+    get_Title(); // Call the get_Title function when the component is mounted
+  }, []);
 
   return (
     <div className={styles.desktop8}>
@@ -124,7 +128,9 @@ const Desktop8 = () => {
         {/* {t.map((item, index) => (
           <div className={styles.title} key={index}>{item.Title}</div>
         ))} */}
-        <div className={styles.location}>Location:</div>
+        {t.map((item, index) => (
+          <div className={styles.location} key = {index}>Location: {item.Location}</div>
+        ))}
       </div>
     </div>
   );

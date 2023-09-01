@@ -151,7 +151,7 @@ app.post("/meet", (req, res) => {
 //meeting information display
 app.get('/meet', (req, res) => {
   // con.query("use client");
-  con.query("SELECT Title, Date FROM meetings", (err, results, fields) => {
+  con.query("SELECT * FROM meetings", (err, results, fields) => {
     if(err) return res.json({message: "Error inside server!"+err});
     res.send(results);
     console.log(results);
