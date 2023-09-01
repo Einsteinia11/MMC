@@ -1,8 +1,11 @@
-import { useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "antd/dist/antd.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { TextField, Button as MuiButton } from "@mui/material";
-import { Input as AntInput } from "antd";
+import {
+  TextField,
+  Button as MuiButton,
+  Input as AntInput
+} from "@mui/material";
 import { Form } from "react-bootstrap";
 import { Input } from "@chakra-ui/react";
 import Axios from 'axios';
@@ -33,6 +36,7 @@ import {
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop7.module.css";
+
 const Desktop7 = () => {
   const navigate = useNavigate();
 
@@ -75,27 +79,29 @@ const Desktop7 = () => {
   const onFrameContainer2Click = useCallback(() => {
     navigate("/desktop-8");
   }, [navigate]);
-  //Meet_ID	PID	Title	Date	Location	Event_URL	Description	
-  //const [PID, usePID] = useState("");
+
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [location, setLoc] = useState("");
   const [url, setUrl] = useState("");
   const [desc, setDesc] = useState("");
-  const [t, setT] = useState("");
-  const create = () =>{
+  const [t, setT] = useState([]);
+
+  const create = () => {
     Axios.post("http://localhost:8081/meet", {
       title: title, date: date, location: location, meet: url, desc: desc
-    }).then(()=>{alert("Successful insert!")})
+    }).then(() => { alert("Successful insert!") });
   };
-  const get_Title = () =>{
+  
+  const get_Title = () => {
     Axios.get("http://localhost:8081/meet").then((response) => {
-    t = response.data;
-    console.log(t)
-    return t
+      setT(response.data);
     });
   }
-  
+  useEffect(() => {
+    get_Title(); // Call the get_Title function when the component is mounted
+  }, []);
+
   return (
     <div className={styles.desktop7}>
       <div className={styles.rectangleParent}>
@@ -192,8 +198,8 @@ const Desktop7 = () => {
           className={styles.buttonoutlinedText}
           variant="outlined"
           color="primary"
-          // onClick={Create}
-          onClick={get_Title}
+          onClick={create}
+          // onClick={get_Title}
           
         >
           Create Meeting
@@ -232,10 +238,13 @@ const Desktop7 = () => {
         //onClick={onFrameContainer2Click}
       >
         <div className={styles.frameChild6} />
-
-        <b className={styles.title} onClick={get_Title}>t</b>
+        {t.map((item, index) => (
+          <div className={styles.title} key={index}>{item.Title}</div>
+        ))}
       </div>
-      <b className={styles.dateTime}>Date & Time</b>
+      {t.map((item, index) => (
+      <div className={styles.dateTime} key={index}>{item.Date}</div>
+      ))}
     </div>
   );
 };
