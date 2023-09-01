@@ -92,13 +92,13 @@ app.post("/api/insert", (req, res) => {
   const Gmail = req.body.email;
   const Experience = req.body.exp;
   const type = "Mentee";
-  const sqlInsert = "INSERT INTO mentees_data( UserName,	Password,	Course,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  const sqlInsert = "INSERT INTO mentees_data( UserName,	Password,	Course,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
   con.query(sqlInsert, [ UserName, Password, Course, Year,  Phone, Gmail, DOB, Experience], (err, result) => {
     console.log(result);
     console.log("added into mentees data");
     console.log(err);
   })
-  const q = "INSERT INTO login_credentials( UserName, Password, Type) VALUES(?,?,?,?)";
+  const q = "INSERT INTO login_credentials( UserName, Password, Type) VALUES(?,?,?)";
   con.query(q, [UserName, Password, type], (err, result) => {
     console.log(result);
     console.log("added into login_credentials")
@@ -119,14 +119,14 @@ app.post("/mentor", (req, res) => {
   const Gmail = req.body.email;
   const Experience = req.body.exp;
   const type = "Mentor";
-  const sqlInsert = "INSERT INTO mentor_data(UserName,	Password,	Qualification,	Job_Description,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  const sqlInsert = "INSERT INTO mentor_data(UserName,	Password,	Qualification,	Job_Description,	Year,	Phone,	Gmail,	DOB,	Experience) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
   con.query(sqlInsert, [UserName, Password, Qualification, Job_desc,  Year, Phone, Gmail, DOB, Experience], (err, result) => {
     console.log(result);
     console.log("added into mentor_data");
     console.log(err);
   })
-  const q = "INSERT INTO login_credentials(PID, UserName, Password, Type) VALUES(?,?,?,?)";
-  con.query(q, [PID, UserName, Password, type], (err, result) => {
+  const q = "INSERT INTO login_credentials(UserName, Password, Type) VALUES(?,?,?)";
+  con.query(q, [UserName, Password, type], (err, result) => {
     console.log(result);
     console.log("added into login_credentials")
     console.log(err)
@@ -135,14 +135,13 @@ app.post("/mentor", (req, res) => {
 
 //for meeting
 app.post("/meet", (req, res) => {
-  const meet_ID = 'M#01';
   const  Title = req.body.title;
   const  date = req.body.date;
   const  location = req.body.location;
   const  Event_URL = req.body.meet;
   const  Description = req.body.desc;
-  const sqlInsert = "INSERT INTO meetings(Meet_ID,	Title,	Date,	Location,	Event_URL,	Description) VALUES(?, ?, ?, ?, ?, ?, ?)"
-  con.query(sqlInsert, [meet_ID,	Title,	date,	location,	Event_URL,	Description], (err, result) => {
+  const sqlInsert = "INSERT INTO meetings(Title,	Date,	Location,	Event_URL,	Description) VALUES(?, ?, ?, ?, ?)"
+  con.query(sqlInsert, [Title,	date,	location,	Event_URL,	Description], (err, result) => {
     console.log(result);
     console.log("added into meetings");
     console.log(err);

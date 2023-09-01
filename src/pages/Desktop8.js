@@ -121,6 +121,9 @@ const Desktop8 = () => {
           />
           <div className={styles.join1}>Join</div>
         </div>
+        {/* {t.map((item, index) => (
+          <div className={styles.title} key={index}>{item.Title}</div>
+        ))} */}
         <div className={styles.location}>Location:</div>
       </div>
     </div>
