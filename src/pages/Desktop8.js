@@ -42,12 +42,12 @@ const Desktop8 = () => {
     navigate("/desktop-10");
   }, [navigate]);
 
-  const [meetDetails, setMeetDetails] = useState([]);
+  // const [meetDetails, setMeetDetails] = useState([]);
 
-  Axios.get("http://localhost:8081/info").then((response) => {
-    meetDetails(response.data)
-    console.log(response.data)
-  });
+  // Axios.get("http://localhost:8081/info").then((response) => {
+  //   meetDetails(response.data)
+  //   console.log(response.data)
+  // });
 
   return (
     <div className={styles.desktop8}>
@@ -107,7 +107,7 @@ const Desktop8 = () => {
             src="/healthiconsischeduleschooldatetime.svg"
           />
         </div>
-        <div className={styles.title}>{val.title}</div>
+        <div className={styles.title}>title</div>
         <img
           className={styles.zondiconslocation}
           alt=""
