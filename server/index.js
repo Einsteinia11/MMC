@@ -150,7 +150,6 @@ app.post("/meet", (req, res) => {
 
 //meeting information display
 app.get('/meet', (req, res) => {
-  // con.query("use client");
   con.query("SELECT * FROM meetings", (err, results, fields) => {
     if(err) return res.json({message: "Error inside server!"+err});
     res.send(results);
@@ -158,7 +157,14 @@ app.get('/meet', (req, res) => {
   });
 });
 
-//
+//sending user credentials 
+app.get('/login', (req, res) => {
+  con.query("SELECT * FROM login_credentials", (err, results, fields) => {
+    if(err) return res.json({message: "Error inside server!"+err});
+    res.send(results);
+    console.log(results);
+  });
+});
 
 app.listen(8081, ()=> {
   console.log("Running on port 8081");

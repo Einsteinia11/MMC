@@ -48,27 +48,27 @@ const FrameComponent = ({ onClose }) => {
         Login
       </Button>
       <TextField
-        className={styles.inputstandardWithIcon}
-        sx={{ width: 357 }}
-        color="primary"
-        variant="standard"
-        type={showPassword ? "text" : "text"}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                onClick={handleShowPasswordClick}
-                aria-label="toggle password visibility"
-              >
-                <Icon>{showPassword ? "visibility_off" : "visibility"}</Icon>
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-        placeholder="Placeholder"
-        size="medium"
-        margin="none"
-      />
+          className={styles.inputstandardWithIcon}
+          sx={{ width: 357 }}
+          color="primary"
+          variant="standard"
+          type={showPassword ? "text" : "password"}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={handleShowPasswordClick}
+                  aria-label="toggle password visibility"
+                >
+                  <Icon>{showPassword ? "visibility_off" : "visibility"}</Icon>
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          placeholder="Placeholder"
+          size="medium"
+          margin="none"
+        />
     </div>
   );
 };
