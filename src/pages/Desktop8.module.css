@@ -225,12 +225,12 @@
 .dateTime {
   position: absolute;
   top: 17px;
-  left: 50px;
+  left: 10px;
   line-height: 22px;
   display: inline-block;
-  width: 141px;
+  width: 400px;
   height: 25px;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  
 }
 .dateTimeParent,
 .healthiconsiScheduleSchool {
@@ -259,7 +259,7 @@
   display: inline-block;
   width: 783px;
   height: 36px;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 .fluentMdl2joinOnlineMeetinIcon,
 .zondiconslocation {
@@ -304,8 +304,28 @@
   display: inline-block;
   /* width: 114px; */
   height: 34px;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
 }
+.rectangleArticle {
+  position: absolute;
+  top: 233px;
+  left: 97px;
+  background-color: #FEF6F6;
+  width: 713px;
+  height: auto;
+  font-size: 14px; /* Adjust the font size as needed */
+  color: var(--color-black);
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  padding: 10px; /* Add padding as needed for spacing */
+  background-color: var(--color-white);
+  border: 1px solid var(--color-navy);
+  border-radius: 5px;
+  white-space: pre-line;
+  overflow-y: auto; /* Adds vertical scrollbar when content exceeds max-height */
+  max-height: 500px;
+}
+
 .rectangleGroup {
   position: absolute;
   top: 222px;
@@ -316,7 +336,11 @@
   text-align: center;
   color: var(--color-navy);
   font-family: var(--font-roboto);
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-start;
 }
+
 .desktop8 {
   position: relative;
   background-color: var(--color-white);

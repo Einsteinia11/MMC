@@ -86,6 +86,7 @@ const Desktop7 = () => {
   const [url, setUrl] = useState("");
   const [desc, setDesc] = useState("");
   const [t, setT] = useState([]);
+  const [lastItem, setLastItem] = useState(null);
 
   const create = () => {
     Axios.post("http://localhost:8081/meet", {
@@ -95,6 +96,8 @@ const Desktop7 = () => {
   
   const get_Title = () => {
     Axios.get("http://localhost:8081/meet").then((response) => {
+      const last = response.data[response.data.length - 1]; // Get the last item
+      setLastItem(last);
       setT(response.data);
     });
   }
@@ -235,16 +238,12 @@ const Desktop7 = () => {
       <div className={styles.noMeetingsAs}>No meetings as of now created!</div>
       <div
         className={styles.rectangleContainer}
-        //onClick={onFrameContainer2Click}
+        onClick={onFrameContainer2Click}
       >
-        <div className={styles.frameChild6} />
-        {t.map((item, index) => (
-          <div className={styles.title} key={index}>{item.Title}</div>
-        ))}
+      <div className={styles.frameChild6} />
+      <div className={styles.title}>{lastItem?.Title}</div>
       </div>
-      {t.map((item, index) => (
-      <div className={styles.dateTime} key={index}>{item.Date}</div>
-      ))}
+      <div className={styles.dateTime}>{lastItem?.Date}</div>
     </div>
   );
 };

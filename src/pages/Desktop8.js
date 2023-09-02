@@ -43,9 +43,12 @@ const Desktop8 = () => {
   }, [navigate]);
 
   const [t, setT] = useState([]);
+  const [lastItem, setLastItem] = useState(null);
 
   const get_Title = () => {
     Axios.get("http://localhost:8081/meet").then((response) => {
+      const last = response.data[response.data.length - 1]; // Get the last item
+      setLastItem(last);
       setT(response.data);
     });
   }
@@ -104,14 +107,14 @@ const Desktop8 = () => {
       <div className={styles.rectangleGroup}>
         <div className={styles.frameChild5} />
         <div className={styles.dateTimeParent}>
-          <div className={styles.dateTime}>{`Date & Time`}</div>
+        <div className={styles.dateTime}>{lastItem?.Date}</div>
           <img
             className={styles.healthiconsiScheduleSchool}
             alt=""
             src="/healthiconsischeduleschooldatetime.svg"
           />
         </div>
-        <div className={styles.title}>title</div>
+        <div className={styles.title}>{lastItem?.Title}</div>
         <img
           className={styles.zondiconslocation}
           alt=""
@@ -123,14 +126,11 @@ const Desktop8 = () => {
             alt=""
             src="/fluentmdl2joinonlinemeeting.svg"
           />
-          <div className={styles.join1}>Join</div>
+        <div className={styles.join1} ><a href={lastItem?.Event_URL}>Join</a></div>
         </div>
-        {/* {t.map((item, index) => (
-          <div className={styles.title} key={index}>{item.Title}</div>
-        ))} */}
-        {t.map((item, index) => (
-          <div className={styles.location} key = {index}>Location: {item.Location}</div>
-        ))}
+        <div className={styles.location} >Location: {lastItem?.Location}</div>
+        <div className={styles.rectangleArticle} id="Description" >{lastItem?.Description}</div>
+
       </div>
     </div>
   );
