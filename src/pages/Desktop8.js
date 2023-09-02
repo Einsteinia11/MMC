@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Desktop8.module.css";
 import Axios from 'axios';
+import Linkify from 'react-linkify';
 
 const Desktop8 = () => {
   const navigate = useNavigate();
@@ -129,7 +130,7 @@ const Desktop8 = () => {
         <div className={styles.join1} ><a href={lastItem?.Event_URL}>Join</a></div>
         </div>
         <div className={styles.location} >Location: {lastItem?.Location}</div>
-        <div className={styles.rectangleArticle} id="Description" >{lastItem?.Description}</div>
+        <div className={styles.rectangleArticle} id="Description" ><Linkify>{lastItem?.Description}</Linkify></div>
 
       </div>
     </div>
