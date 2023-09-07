@@ -77,7 +77,7 @@ createTableIfNotExists(
 
 createTableIfNotExists(
   'login_credentials',
-  'CREATE TABLE login_credentials (PID INT AUTO_INCREMENT PRIMARY KEY, UserName VARCHAR(255), Password VARCHAR(255), Type VARCHAR(255))'
+  'CREATE TABLE login_credentials (PID INT AUTO_INCREMENT PRIMARY KEY, UserName VARCHAR(255), Password VARCHAR(255), Email VARCHAR(255), Type VARCHAR(255))'
 );
 
 //for mentees
@@ -98,8 +98,8 @@ app.post("/api/insert", (req, res) => {
     console.log("added into mentees data");
     console.log(err);
   })
-  const q = "INSERT INTO login_credentials( UserName, Password, Type) VALUES(?,?,?)";
-  con.query(q, [UserName, Password, type], (err, result) => {
+  const q = "INSERT INTO login_credentials( UserName, Password, Email, Type) VALUES(?,?,?, ?)";
+  con.query(q, [UserName, Password, Gmail, type], (err, result) => {
     console.log(result);
     console.log("added into login_credentials")
     console.log(err)
@@ -125,8 +125,8 @@ app.post("/mentor", (req, res) => {
     console.log("added into mentor_data");
     console.log(err);
   })
-  const q = "INSERT INTO login_credentials(UserName, Password, Type) VALUES(?,?,?)";
-  con.query(q, [UserName, Password, type], (err, result) => {
+  const q = "INSERT INTO login_credentials( UserName, Password, Email, Type) VALUES(?,?,?, ?)";
+  con.query(q, [UserName, Password, Gmail, type], (err, result) => {
     console.log(result);
     console.log("added into login_credentials")
     console.log(err)
@@ -158,13 +158,25 @@ app.get('/meet', (req, res) => {
 });
 
 //sending user credentials 
-app.get('/login', (req, res) => {
-  con.query("SELECT * FROM login_credentials", (err, results, fields) => {
-    if(err) return res.json({message: "Error inside server!"+err});
-    res.send(results);
-    console.log(results);
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // Assuming your table has columns 'email' and 'password'
+  con.query("SELECT * FROM login_credentials WHERE email = ? AND password = ?", [email, password], (err, results, fields) => {
+    if (err) {
+      return res.json({ success: false, message: "Error inside server! " + err });
+    }
+
+    if (results.length === 1) {
+      // User exists and credentials are correct
+      return res.json({ success: true, message: "Login successful!" });
+    } else {
+      // User does not exist or credentials are incorrect
+      return res.json({ success: false, message: "Invalid email or password." });
+    }
   });
 });
+
 
 app.listen(8081, ()=> {
   console.log("Running on port 8081");

@@ -1,12 +1,15 @@
-import { useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TextField, InputAdornment, Icon, IconButton } from "@mui/material";
 import { Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "./FrameComponent.module.css";
+import Axios from 'axios';
+
 const FrameComponent = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleShowPasswordClick = () => {
     setShowPassword(!showPassword);
   };
@@ -16,8 +19,25 @@ const FrameComponent = ({ onClose }) => {
   }, [navigate]);
 
   const onButtonOutlinedClick = useCallback(() => {
-    navigate("/desktop-4");
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    Axios.post("http://localhost:8081/login", { email, password })
+      .then((response) => {
+        if (response.data.success) {
+          // Redirect to Desktop4.js after successful login
+          navigate("/desktop-4"); // Change this to match your route for Desktop4.js
+        } else {
+          alert("Invalid email or password. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("An error occurred while logging in. Please try again later.");
+      });
   }, [navigate]);
+
+
 
   return (
     <div className={styles.passwordParent}>
@@ -25,7 +45,7 @@ const FrameComponent = ({ onClose }) => {
       <div className={styles.frameChild} />
       <div className={styles.heyThere}>Hey There!</div>
       <Form.Group className={styles.wrapper}>
-        <Form.Control type="text" placeholder="Enter your email" />
+        <Form.Control type="text" id="email" placeholder="Enter your email" />
       </Form.Group>
       <div className={styles.frameItem} />
       <div className={styles.email}>Email</div>
@@ -65,10 +85,19 @@ const FrameComponent = ({ onClose }) => {
               </InputAdornment>
             ),
           }}
-          placeholder="Placeholder"
+          id="password"
+          placeholder="Password"
           size="medium"
           margin="none"
         />
+      <Button
+        className={styles.buttonoutlined}
+        variant="outline-primary"
+        size="lg"
+        onClick={onButtonOutlinedClick}
+      >
+        Login
+      </Button>
     </div>
   );
 };
